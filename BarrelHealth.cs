@@ -136,7 +136,9 @@ namespace Oxide.Plugins
 
         private void OnLootSpawn(LootContainer container)
         {
-            if (container != null && container.PrefabName.Contains("barrel"))
+            if (container != null
+                && container.PrefabName.Contains("barrel")
+                && (container.SpawnType == LootContainer.spawnType.ROADSIDE || container.SpawnType == LootContainer.spawnType.TOWN))
             {
                 InitializeBarrelHealth(container);
             }
